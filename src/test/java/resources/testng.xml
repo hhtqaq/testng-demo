@@ -1,0 +1,165 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--preserve-order  按照顺序-->
+<!--
+test 参数：
+1thread-count
+这个参数是指testNG运行时的线程池的大小。当启用了parallel时生效。
+具体的大小可以从xml文件中指定。若不指定，默认为10.启用此参数后可以大幅提高测试用例执行的速度
+
+2parallel
+parallel=”methods” 按照method级别进行并发，即便是配置了依赖跟顺序的也会用不同的线程运行，但是会按照顺序。
+parallel=”tests” 按照xml定义的< test > 来运行。
+parallel=”classes” 按照类来并发运行
+parallel=”instances” 这个是按照实例来并发运行（这个不常用）
+
+-->
+<suite name="接口自动化测试" verbose="5" preserve-order="true" parallel="false">
+    <parameter name="projectName" value="立方云接口自动化测试"/>
+    <parameter name="runCount" value="1"/>
+    <test name="testDemo" verbose="1">
+        <classes>
+            <class name="com.ecjtu.hht.testngdemo.student.StudentTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+    <!--整合reportng 功能更强大  testng生成的报告会有中文乱码-->
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+    <!--<test name="单API-ALL">-->
+    <!--<classes>-->
+    <!--<class name="test.com.tdcloud.apiautotest.singleapi.SingleApiTest">-->
+    <!--<methods>-->
+    <!--<include name="testSingleAPI"></include>-->
+    <!--</methods>-->
+    <!--</class>-->
+    <!--</classes>-->
+    <!--</test>-->
+
+    <!-- <test name="testEmailRegister"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.account.AccountTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testEmailRegister"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testMobileRegister"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.account.AccountTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testMobileRegister"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+    <!-- <test name="testMobileLoginAndSetPwd"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.account.AccountTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testMobileLoginAndSetPwd"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+    <!-- <test name="testModifyAccountAndUserDelete"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.account.AccountTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testModifyAccountAndUserDelete"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testGroupAndDevice"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.devicemanager.DeviceTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testGroupAndDevice"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testPlayBack"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.recordplayback.PlayBackTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testPlayBack"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testAddDeviceAndPreview"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.livepreview.PreviewTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testAddDeviceAndPreview"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testAddFriendAndShareDevice"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.share.ShareTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testAddFriendAndShareDevice"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testAddFriendGroupAndShareDevice"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.share.ShareTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testAddFriendGroupAndShareDevice"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+
+    <!-- <test name="testOffline"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.alarm.AlarmTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testOffline"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+    <!-- <test name="testFeedbackAndTerminal"> -->
+    <!-- <classes> -->
+    <!-- <class name="test.com.tdcloud.apiautotest.other.OthersTest"> -->
+    <!-- <methods> -->
+    <!-- <include name="testFeedbackAndTerminal"></include> -->
+    <!-- </methods> -->
+    <!-- </class> -->
+    <!-- </classes> -->
+    <!-- </test> -->
+
+
+    <!--<listeners>
+        &lt;!&ndash;<listener class-name="com.tdcloud.apiautotest.listeners.AutoTestListener"></listener>
+        <listener class-name="com.tdcloud.apiautotest.listeners.RetryListener"></listener>&ndash;&gt;
+        &lt;!&ndash; ReportNg 报告  &ndash;&gt;
+        &lt;!&ndash;
+        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+        &ndash;&gt;
+        &lt;!&ndash; ExtentReport 报告  &ndash;&gt;
+        <listener class-name="com.tdcloud.apiautotest.listeners.ExtentTestNGIReporterListener"></listener>
+    </listeners>-->
+</suite>
+
