@@ -21,6 +21,7 @@ public class StudentController {
 
     @RequestMapping("/student/list")
     public List<Student> getStudents() {
+        System.out.println("test");
         return mapper.getAllStudents();
     }
 
